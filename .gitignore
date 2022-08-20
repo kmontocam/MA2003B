@@ -128,10 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Test
-*
-*/
-!.gitignore
-
 # Memory consuming files
-data/databases.pkl
+databases.pkl
