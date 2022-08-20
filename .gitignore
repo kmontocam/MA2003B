@@ -128,12 +128,13 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-<<<<<<< Updated upstream
-=======
-# Ignore files but not folders
-*
-*/
-!.gitignore
+# Ignore files but not the data folder
+
+# Exclude everything
+data/*
+
+# Exception to the rule
+!data/.gitkeep 
 
 >>>>>>> Stashed changes
 # Memory consuming files
