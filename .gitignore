@@ -128,5 +128,13 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+<<<<<<< Updated upstream
+=======
+# Ignore files but not folders
+*
+*/
+!.gitignore
+
+>>>>>>> Stashed changes
 # Memory consuming files
 databases.pkl
