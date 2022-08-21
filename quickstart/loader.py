@@ -4,13 +4,12 @@ import pandas as pd
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 from typing import Callable
-# add annotations for __new__
+
 
 class XlsxDriveLoader():
     """
     Read Excel files in Drive Folder
     """
-
     _loaded = None
     _folder_id = '1XoUes99yRgfm8KNT2Kf9ZXQBexos_2dm'
 
@@ -34,17 +33,18 @@ class XlsxDriveLoader():
 
         data_container = drive.ListFile(
             {'q': f"'{folder_id}' in parents and trashed=false"}).GetList()
-
-        load_databases: Callable[[pydrive.files.GoogleDriveFile],
-                                 None] = lambda x: x.FetchContent()
+        load_databases: Callable[[pydrive.files.GoogleDriveFile], None] = (
+            lambda x: x.FetchContent())
         gen = (map(load_databases, data_container))
 
+        # Allocate data in memory
         while True:
             try:
                 next(gen)
             except StopIteration:
                 break
 
+        # Structure databases
         databases = dict()
         for xlsx in data_container:
             if xlsx['title'].endswith('.xlsx'):
@@ -56,6 +56,7 @@ class XlsxDriveLoader():
 
                 databases[xlsx['title']] = xlsx_sheets
 
+        # Output
         self.content = databases
-        with open('data/databases.pkl', 'wb') as file:
+        with open('data/raw_databases.pkl', 'wb') as file:
             pickle.dump(databases, file)
