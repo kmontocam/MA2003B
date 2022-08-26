@@ -1,6 +1,8 @@
+from matplotlib import collections
 import pydrive
 import pickle
 import pandas as pd
+import collections
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 from typing import Callable, Type
@@ -56,6 +58,8 @@ class XlsxDriveLoader():
                     xlsx_sheets[sheet_name] = xlsx_content.parse(sheet_name)
 
                 databases[xlsx['title']] = xlsx_sheets
+
+        databases = collections.OrderedDict(sorted(databases.items()))
 
         # Output
         self.content = databases
