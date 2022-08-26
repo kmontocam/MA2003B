@@ -11,4 +11,4 @@
 `! pip install openpyxl`
 
 
-And the default Data Science toolkit built into conda
+And the default Data Science toolkit built into `base` conda
