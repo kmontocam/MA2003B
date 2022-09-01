@@ -144,4 +144,4 @@ raw_data/*
 .DS_Store
 
 # Ignore client-secrets
-client_secrets.json
+quickstart/client_secrets.json
