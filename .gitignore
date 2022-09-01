@@ -132,7 +132,7 @@ dmypy.json
 
 # Exclude everything
 data/*
-raw_data/*
+raw-data/*
 
 # Exception to the rule
 !data/.gitkeep
