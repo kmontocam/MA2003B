@@ -62,7 +62,7 @@ class XlsxDriveLoader():
 
         # Output
         self.content = databases
-        with open('data/raw_databases.pkl', 'wb') as file:
+        with open('raw-data/databases.pkl', 'wb') as file:
             pickle.dump(databases, file)
         
         print('Data was correctly allocated in memory')
