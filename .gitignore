@@ -132,13 +132,16 @@ dmypy.json
 
 # Exclude everything
 data/*
+raw_data/*
 
 # Exception to the rule
-!data/.gitkeep 
+!data/.gitkeep
+!raw-data/.gitkeep
 
 >>>>>>> Stashed changes
-# Memory consuming files
-databases.pkl
 
 # Ignore folder cahce
 .DS_Store
+
+# Ignore client-secrets
+client_secrets.json
